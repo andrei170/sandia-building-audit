@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Competitor Analysis &middot; Sandia Building Solutions &middot; AG1 Consulting</title><style>
+:root{--bg:#0d1117;--panel:#161b22;--ink:#e6edf3;--mut:#9aa7b4;--line:#2a3340;--accent:#2f81f7;
+  --good:#3fb950;--bad:#f85149;--gradF:#f85149;--gradD:#e8702a;--gradC:#d29922;--gradB:#3fb950;--gradA:#2ea043;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--mut);font-weight:600}
+header{padding:46px 0 28px;border-bottom:1px solid var(--line);background:radial-gradient(1200px 400px at 70% -10%,rgba(47,129,247,.18),transparent)}
+h1{font-size:30px;font-weight:800;margin:10px 0 6px;letter-spacing:-.01em}
+.sub{color:var(--mut);font-size:15px}
+.hero{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:center;margin:34px 0 8px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}}
+.gradecard{border:1px solid var(--line);border-radius:18px;padding:26px;text-align:center;position:relative;overflow:hidden}
+.gc-F{background:linear-gradient(160deg,#2a1410,#1c2330)}.gc-D{background:linear-gradient(160deg,#2a1c10,#1c2330)}
+.gc-C{background:linear-gradient(160deg,#2a2410,#1c2330)}.gc-B{background:linear-gradient(160deg,#102a1a,#1c2330)}
+.bigletter{font-size:96px;font-weight:900;line-height:1;position:relative}
+.bl-F{color:var(--gradF);text-shadow:0 0 40px rgba(248,81,73,.45)}
+.bl-D{color:var(--gradD);text-shadow:0 0 40px rgba(232,112,42,.45)}
+.bl-C{color:var(--gradC);text-shadow:0 0 40px rgba(210,153,34,.45)}
+.score100{font-size:18px;color:var(--mut);margin-top:6px;position:relative}
+.heroread h2{font-size:21px;font-weight:800;margin-bottom:10px}
+.heroread p{color:var(--mut);font-size:15.5px}
+.heroread .tag{display:inline-block;margin-top:14px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:var(--ink);background:var(--panel)}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+.h{font-size:13px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.row{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+.rname{font-weight:600;font-size:15px}
+.bar{height:7px;background:#0b0f15;border-radius:99px;margin-top:9px;overflow:hidden}
+.fill{height:100%;border-radius:99px}
+.badge{font-weight:800;font-size:15px;min-width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#0d1117}
+.gF{background:var(--gradF)}.gD{background:var(--gradD)}.gC{background:var(--gradC)}.gB{background:var(--gradB);color:#06210f}.gA{background:var(--gradA);color:#06210f}
+.sc{font-size:12px;color:var(--mut);margin-top:3px}
+.flag{background:linear-gradient(160deg,#2a1410,#161b22);border:1px solid #6f2a1f;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.flag .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--bad);font-weight:700;margin-bottom:8px}
+.win{background:linear-gradient(160deg,#0f2417,#161b22);border:1px solid #1f6f3a;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.win .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--good);font-weight:700;margin-bottom:8px}
+.warn{background:linear-gradient(160deg,#2a2410,#161b22);border:1px solid #6f5a1f;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.warn .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--gradC);font-weight:700;margin-bottom:8px}
+.flag p,.win p,.warn p{color:var(--mut);font-size:14.5px;margin-bottom:9px}
+.flag p:last-child,.win p:last-child,.warn p:last-child{margin-bottom:0}
+.flag b,.win b,.warn b{color:var(--ink)}
+.flag ul,.win ul,.warn ul{margin:0 0 9px 20px;color:var(--mut);font-size:14.5px}
+.flag li,.win li,.warn li{margin-bottom:6px}
+.code{background:#0b0f15;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12.5px;line-height:1.85;color:var(--mut);overflow-x:auto}
+.code .ph{color:#ff9d94;font-weight:700}.code .ok{color:#84e0a8;font-weight:700}.code .c{color:#5b6672}
+.cmp{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cmp th{text-align:left;padding:11px 14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);border-bottom:1px solid var(--line);font-weight:700}
+.cmp td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--mut);vertical-align:top}
+.cmp tr:last-child td{border-bottom:none}.cmp td b{color:var(--ink)}.cmp tr.you td{background:#241a12}
+.cmp .yes{color:var(--good);font-weight:700}.cmp .no{color:var(--bad);font-weight:700}
+.opp{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.opp{grid-template-columns:1fr}}
+.ocard{background:linear-gradient(160deg,#0f2417,#161b22);border:1px solid #1f6f3a;border-radius:14px;padding:20px;text-align:center}
+.ocard .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--mut)}
+.ocard .big{font-size:30px;font-weight:900;color:var(--good);margin:8px 0 2px}
+.ocard .small{font-size:13px;color:var(--mut)}
+.oppnote{color:var(--mut);font-size:14px;margin-top:14px}.oppnote b{color:var(--ink)}
+.arrow{display:flex;align-items:center;justify-content:center;gap:18px;margin:6px 0 2px;flex-wrap:wrap}
+.pill{font-size:60px;font-weight:900;line-height:1}
+.pill.from-F{color:var(--gradF)}.pill.from-D{color:var(--gradD)}.pill.from-C{color:var(--gradC)}
+.pill.to{color:var(--gradA)}
+.pilllab{font-size:12px;color:var(--mut);text-align:center;text-transform:uppercase;letter-spacing:.1em}
+.ar{font-size:34px;color:var(--mut)}
+ul.road{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:760px){ul.road{grid-template-columns:1fr}}
+ul.road li{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:11px 14px;font-size:14.5px}
+.road2 li{border-left-color:var(--good)}
+.cta{text-align:center;padding:40px 0 56px}
+.cta h2{font-size:22px;font-weight:800;margin-bottom:8px}
+.cta p{color:var(--mut);font-size:15px}
+footer{color:var(--mut);font-size:12.5px;text-align:center;padding:22px 0 40px;line-height:1.7}
+.gscale{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 26px 20px;margin-top:16px}
+.gscale .gtitle{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--mut);font-weight:700;margin-bottom:26px;text-align:center}
+.gtrack{position:relative;height:14px;border-radius:8px;background:linear-gradient(90deg,#f85149 0%,#f85149 18%,#e3833c 34%,#d4a72c 52%,#7ec46a 74%,#3fb950 100%);margin:0 4px}
+.gmark{position:absolute;top:-46px;transform:translateX(-50%);text-align:center;white-space:nowrap}
+.gmark .gm-lab{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);font-weight:700}
+.gmark .gm-val{font-size:19px;font-weight:900;line-height:1.15}
+.gmark:after{content:"";position:absolute;left:50%;top:100%;width:2px;height:22px;transform:translateX(-50%);background:currentColor;opacity:.75}
+.gmark.now{color:var(--bad)}.gmark.now .gm-val{color:var(--bad)}
+.gmark.proj{color:var(--good)}.gmark.proj .gm-val{color:var(--good)}
+.gmark.proj{top:auto;bottom:-52px}
+.gmark.proj:after{top:auto;bottom:100%}
+.gdot{position:absolute;top:50%;width:16px;height:16px;border-radius:50%;transform:translate(-50%,-50%);border:3px solid #0d1117}
+.gdot.now{background:var(--bad)}.gdot.proj{background:var(--good)}
+.gticks{display:flex;justify-content:space-between;margin:66px 4px 0;font-size:11px;letter-spacing:.08em;color:var(--mut);font-weight:700}
+@media(max-width:620px){.gmark .gm-lab{font-size:9px}.gmark .gm-val{font-size:16px}}
+
+/* ---------- injected asset nav ---------- */
+.agnav{position:sticky;top:0;z-index:80;background:rgba(13,17,23,.92);backdrop-filter:saturate(1.5) blur(10px);border-bottom:1px solid var(--line)}
+.agnav .inner{max-width:1080px;margin:0 auto;padding:0 22px;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.agnav a{display:inline-block;padding:12px 14px;font-size:14px;font-weight:600;color:var(--mut);text-decoration:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.agnav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.agnav a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.agnav a.ext{color:var(--accent)}
+.agnav a.ext:hover{color:#fff}
+@media(max-width:560px){.agnav .inner{padding:0 14px}.agnav a{padding:10px 9px;font-size:13px}}
+</style></head><body>
+<nav class="agnav"><div class="inner"><a href="assets.html">All Assets</a><a href="./">Audit</a><a href="competitors.html" class="on">Competitors</a><a href="https://andrei170.github.io/sandia-building-demo/">Concept Site</a></div></nav>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Competitor Analysis &middot; Sandia Building Solutions &middot; Albuquerque, New Mexico</div>
+    <div class="sub">Prepared for Adam and Alfonso &middot; 28 September 2026 &middot; AG1 Consulting</div>
+    <h1>Three Albuquerque Roofers Measured. One Of Them Is Tracking Paid Advertising Properly, And Almost Nobody Anywhere Is.</h1>
+
+    <div class="hero">
+      <div class="heroread">
+        <h2>All three have analytics, schema, a canonical and a phone link. One has a Google Ads conversion tag.</h2>
+        <p>That last one matters more than it looks. <b>Across four markets we have audited this week &mdash; Denver
+        commercial roofing, New England solar, Clarksville roofing and Albuquerque &mdash; Premium Roofing is the only
+        firm we have found running conversion tracking.</b></p>
+        <p>Your own site could not be measured, and that is stated plainly rather than filled in with guesses.</p>
+        <div class="tag">Measured 28 September 2026 &bull; Same method on every site</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="h">The Comparison</div>
+    <div class="code">
+  FIRM                   WORDS   H1  H2  DESC  CANON  SCHEMA  GA4  GTM  ADS  TEL
+  <span class="ok">Premium Roofing</span>        1,760    1   7   yes   yes    yes     <span class="ok">Y</span>    <span class="ok">Y</span>    <span class="ok">YES</span>  <span class="ok">Y</span>
+  AAA Roofing            1,828    2   8   yes   yes    yes     <span class="ok">Y</span>    -    no   <span class="ok">Y</span>
+  Alvarado Roofing         820    1   6   yes   yes    yes     <span class="ok">Y</span>    -    no   <span class="ok">Y</span>
+  Altitude Roofing       <span class="ph">-- blocked by the same bot wall as your site</span>
+  <span class="ph">Sandia (you)           -- blocked; NOT measured, NOT estimated</span>
+
+  All fetched 28 September 2026. Words exclude scripts and markup.
+    </div>
+    <div class="flag">
+      <div class="lab">What this table does and does not tell you</div>
+      <p><b>It tells you the standard in Albuquerque roofing is competent.</b> All three readable firms have the basics
+      &mdash; description, canonical, schema, analytics, click-to-call. Nobody here is leaving obvious gaps.</p>
+      <p><b>It does not tell you where you sit,</b> because we could not read your site. Two of the five firms in this
+      market sit behind the same SiteGround challenge, yours included. That is a coincidence of hosting, not a finding
+      about either of you.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">Finding 1 &mdash; Premium Roofing Is The Firm To Watch</div>
+    <div class="code">
+  Premium Roofing        1,760 words  ·  197KB  ·  7 H2
+  premiumroofingnm.com   43 years, family owned and operated
+  <span class="ok">GA4 + Google Tag Manager + Google Ads conversion tag + Meta pixel</span>
+  schema  ·  canonical  ·  description  ·  click-to-call
+    </div>
+    <div class="warn">
+      <div class="lab">The complete set, and it compounds</div>
+      <p><b>Analytics, tag manager, conversion tracking and a Meta pixel.</b> That combination means they can see which
+      ad produced which enquiry, cut the ones that fail, and retarget people who did not convert the first time.</p>
+      <p><b>Every month that runs, their cost per job falls and a competitor without tracking stays flat.</b> That is
+      the real threat &mdash; not their word count, not their 43 years, but a feedback loop you do not currently have.</p>
+      <p><b>They are family owned, not corporate.</b> So this is not a budget you cannot match. It is a setup you can
+      copy in an afternoon.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">Finding 2 &mdash; AAA Has The Content Lead And Two H1s</div>
+    <div class="code">
+  AAA Roofing            <span class="ok">1,828 words</span>  ·  8 H2  ·  <span class="ph">2 H1 tags</span>
+  aaaroofingnm.com       30+ years  ·  residential and commercial
+  GA4  ·  schema  ·  canonical  ·  click-to-call  ·  <span class="ph">no ads tracking</span>
+    </div>
+    <div class="win">
+      <div class="lab">The highest word count in the market, and a fixable flaw</div>
+      <p><b>AAA publishes the most content of the three and has the same 30-year claim you do.</b> They are the direct
+      like-for-like comparison: same city, same age, same residential-and-commercial mix.</p>
+      <p><b>They have two H1 tags, which muddles what the page is about, and no conversion tracking.</b> So the firm
+      with the most content in Albuquerque still cannot tell which of those 1,828 words produces a phone call.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">Finding 3 &mdash; Alvarado Shows The Floor Is Lower Than You Think</div>
+    <div class="code">
+  Alvarado Roofing         <span class="ok">820 words</span>  ·  6 H2  ·  A+ BBB
+  alvaradoroofing.com      GA4 · schema · canonical · click-to-call
+                           <span class="ph">no tag manager, no ads tracking</span>
+    </div>
+    <div class="win">
+      <div class="lab">820 words and a complete set of basics is enough to compete here</div>
+      <p><b>Less than half AAA's content, and they hold a position in this market.</b> The lesson is the same one that
+      shows up in every market we measure: the basics done completely beat a lot of words done carelessly.</p>
+      <p><b>For you that sets a realistic bar.</b> If your pages are near 800 words with description, canonical,
+      schema, analytics and a phone link, you are structurally competitive in Albuquerque roofing today.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">Finding 4 &mdash; Nobody Here Is Competing On Exclusivity</div>
+    <div class="code">
+  WHAT ALL THREE COMPETITORS SELL ON
+
+  Premium Roofing      43 years, family owned, financing
+  AAA Roofing          30+ years, experience, local professionals
+  Alvarado Roofing     A+ BBB rating, contractor credentials
+
+  <span class="ok">NONE of them is saying: "call us directly and you are not
+  bidding against three other contractors."</span>
+    </div>
+    <div class="win">
+      <div class="lab">This is the position that answers your actual complaint</div>
+      <p><b>Every firm in this market sells the same things: years, credentials, family ownership.</b> Those are table
+      stakes in Albuquerque and they do not separate anyone.</p>
+      <p><b>What separates you is what you told Jocelyne you want</b> &mdash; a homeowner who contacts you directly
+      gets one contractor, one visit, one honest price, and is not being called by three other firms the same
+      afternoon. That is a genuine benefit to the customer, not just to you.</p>
+      <p><b>It is also self-reinforcing.</b> Every direct enquiry is one you do not pay a platform for, at a price you
+      did not have to cut to win.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">What This Field Tells Us To Do</div>
+    <ul class="road">
+      <li><b>Copy Premium Roofing's measurement setup first.</b> GA4, Tag Manager, conversion tracking. It is the one
+      thing a competitor here is doing that genuinely compounds, and it is cheap.</li>
+      <li><b>Target Alvarado's 820 words, not AAA's 1,828.</b> The basics done completely is the bar in this market.</li>
+      <li><b>Extend the location pages across the metro</b> &mdash; you already have Albuquerque and Los Lunas, so the
+      pattern exists. Rio Rancho, Bernalillo, Belen, Corrales next.</li>
+      <li><b>Lead on exclusivity, because nobody else does.</b> One contractor, one visit, no bidding war &mdash; it is
+      the only claim in this market that is about the customer's experience rather than the company's age.</li>
+      <li><b>Then paid, tracked and fenced to the metro,</b> so a growing share of your work arrives without an auction
+      attached.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="wrap">
+    <h2>Three competitors selling years and credentials. Nobody selling &ldquo;you are not bidding against anyone&rdquo;.</h2>
+    <p>That is the gap, and it is the same thing you said you were tired of.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    Prepared by Andrei Givero &middot; AG1 Consulting &middot; 28 September 2026, for Adam and Alfonso.
+    <b>All measured sites were fetched on 28 September 2026 by the same method and measured on the same criteria. Word
+    counts exclude scripts, styles and markup. Analytics, Tag Manager, Google Ads and Meta pixel detection was
+    performed on the served homepage. A tag absent from a homepage may exist elsewhere on that site or be deployed
+    through a system not visible externally &mdash; these figures describe the page as served, not the whole of any
+    firm's marketing.</b>
+    <b>&#9888; sandiabuildingsolutions.com and altituderoofingnm.com both returned an HTTP 202 captcha challenge and
+    were NOT measured. No word count, tag, schema or grade has been estimated for either. A blocked request is
+    indistinguishable from an empty page and nothing has been inferred from it.</b>
+    <b>&#9888; Competitor selection came from a public search for Albuquerque roofing contractors on 28 September
+    2026. It is not a complete list of firms operating in the metro and ranking positions were not recorded. Years in
+    business, BBB ratings, family-ownership and financing claims are as published on each firm's own site and have not
+    been independently verified by AG1.</b>
+    <b>&#9888; The description of shared-lead platforms is a general description of that commercial model, not a
+    statement about any specific platform's current terms or practices, which AG1 has not reviewed.</b>
+    <b>&#9888; No ranking, enquiry, call, lead, job volume or revenue outcome is promised, forecast or guaranteed.</b>
+    Product and company names are used for identification only and belong to their respective owners.
+  </div>
+</footer>
+</body></html>
